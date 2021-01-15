@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Search v-model="search" />
+    <Search v-model="search" v-on:change="listen" />
     <!-- <div class="search">
       <div>
         <i class="fas fa-search"></i>
@@ -19,7 +19,6 @@
         class="card"
         v-for="country in filteredCountries"
         :key="country.name"
-        v-on:searchedValue="listen"
       >
         <img :src="country.flag" :alt="[country.name]" />
         <div class="card__content">
@@ -50,8 +49,8 @@ export default {
     return {
       loading: false,
       countries: [],
-      search: '',
-      name: '',
+      search: "",
+      name: "",
       uri: 'https://restcountries.eu/rest/v2/all',
     };
   },
@@ -69,17 +68,16 @@ export default {
         console.log(error);
       });
   },
-  method: {
-    listen(e) {
-      console.log(e);
-      this.search = e;
-      console.log('new value for searched country: ', this.search);
+  methods: {
+    listen(value) {
+      this.search = value;
+      // console.log(value);
     },
   },
   computed: {
     filteredCountries() {
       return this.countries.filter((country) => {
-        return country.name.toLowerCase().includes(this.search.toLowerCase());
+        return country.name.toLowerCase().includes(this.search.toString().toLowerCase());
       });
     },
   },

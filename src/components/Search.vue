@@ -7,6 +7,7 @@
           type="text"
           placeholder="Search for a country..."
           v-model="search"
+          @keyup="searching"
         />
       </div>
       <div></div>
@@ -15,9 +16,9 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
-  name: 'Search',
+  name: "Search",
   data() {
     return {
       countries: [],
@@ -44,11 +45,9 @@ export default {
       });
     },
   },
-  watch: {
-    search() {
-      console.log(this.search);
-      // const searchedValue = this.search.value;
-      this.$emit('searchedValue', this.search);
+  methods: {
+    searching() {
+      this.$emit("change", this.search);
     },
   },
 };
