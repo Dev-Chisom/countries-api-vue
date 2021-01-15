@@ -20,7 +20,9 @@ export default {
   name: 'Search',
   data() {
     return {
+      countries: [],
       search: '',
+      name: '',
       uri: 'https://restcountries.eu/rest/v2/region/europe',
     };
   },
@@ -28,12 +30,27 @@ export default {
     return axios
       .get(this.uri)
       .then((response) => {
+        this.countries = response.data;
         console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
   },
+  computed: {
+    filteredCountries() {
+      return this.countries.filter((country) => {
+        return country.name.match(this.search);
+      });
+    },
+  },
+  //   computed: {
+  //     filteredCountries() {
+  //         return this.countries.filter((country)=>{
+  //             return boolean;
+  //         })
+  //     },
+  //   },
 };
 </script>
 

@@ -1,15 +1,14 @@
 <template>
   <div class="app">
     <Header :mode="mode" @toggle="toggle" />
-    <!-- <Main /> -->
-    <Loading />
+    <Main />
   </div>
 </template>
 
 <script>
 import Header from './components/Header';
-// import Main from './components/Main';
-import Loading from './components/Loading';
+import Main from './components/Main';
+
 export default {
   name: 'App',
   data() {
@@ -19,8 +18,7 @@ export default {
   },
   components: {
     Header,
-    // Main,
-    Loading,
+    Main,
   },
   toggle() {
     if (this.mode === 'dark') {

@@ -171,7 +171,7 @@ export default {
   height: 200px;
 }
 .faux-image {
-  background: #dddddd;
+  background: silver;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   height: 150px;
@@ -179,7 +179,7 @@ export default {
   width: 100%;
 }
 .faux-text {
-  background: #dddddd;
+  background: silver;
   border-radius: 2px;
   height: 25px;
   width: 75%;
