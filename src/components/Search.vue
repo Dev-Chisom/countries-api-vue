@@ -44,13 +44,13 @@ export default {
       });
     },
   },
-  //   computed: {
-  //     filteredCountries() {
-  //         return this.countries.filter((country)=>{
-  //             return boolean;
-  //         })
-  //     },
-  //   },
+  watch: {
+    search() {
+      console.log(this.search);
+      // const searchedValue = this.search.value;
+      this.$emit('searchedValue', this.search);
+    },
+  },
 };
 </script>
 

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <!-- <Search /> -->
-    <div class="search">
+    <Search v-model="search" />
+    <!-- <div class="search">
       <div>
         <i class="fas fa-search"></i>
         <input
@@ -10,15 +10,16 @@
           v-model="search"
         />
       </div>
-    </div>
+    </div> -->
     <div v-if="loading">
-      <Loading v-model="search" />
+      <Loading />
     </div>
     <div class="gallery">
       <div
         class="card"
         v-for="country in filteredCountries"
         :key="country.name"
+        v-on:searchedValue="listen"
       >
         <img :src="country.flag" :alt="[country.name]" />
         <div class="card__content">
@@ -35,14 +36,14 @@
 </template>
 
 <script>
-// import Search from './Search';
+import Search from './Search';
 import Loading from './Loading';
 import axios from 'axios';
 
 export default {
   name: 'Main',
   components: {
-    // Search,
+    Search,
     Loading,
   },
   data() {
@@ -68,6 +69,13 @@ export default {
         console.log(error);
       });
   },
+  method: {
+    listen(e) {
+      console.log(e);
+      this.search = e;
+      console.log('new value for searched country: ', this.search);
+    },
+  },
   computed: {
     filteredCountries() {
       return this.countries.filter((country) => {
@@ -79,7 +87,7 @@ export default {
 </script>
 
 <style>
-.search {
+/* .search {
   position: relative;
   display: flex;
   align-items: center;
@@ -102,7 +110,7 @@ input {
   font-size: 12px;
   color: #fff !important;
   font-weight: 600;
-}
+} */
 .gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
