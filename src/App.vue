@@ -1,13 +1,14 @@
 <template>
   <div class="app">
     <Header :mode="mode" @toggle="toggle" />
-    <Main />
+
+    <router-view :key="$route.fullPath"></router-view>
   </div>
 </template>
 
 <script>
 import Header from './components/Header';
-import Main from './components/Main';
+// import Main from './components/Main';
 
 export default {
   name: 'App',
@@ -18,7 +19,7 @@ export default {
   },
   components: {
     Header,
-    Main,
+    // Main,
   },
   toggle() {
     if (this.mode === 'dark') {

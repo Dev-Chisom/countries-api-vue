@@ -16,9 +16,9 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios';
 export default {
-  name: "Search",
+  name: 'Search',
   data() {
     return {
       countries: [],
@@ -32,7 +32,7 @@ export default {
       .get(this.uri)
       .then((response) => {
         this.countries = response.data;
-        console.log(response.data);
+        // console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     searching() {
-      this.$emit("change", this.search);
+      this.$emit('change', this.search);
     },
   },
 };

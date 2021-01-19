@@ -1,16 +1,7 @@
 <template>
   <div>
     <Search v-model="search" v-on:change="listen" />
-    <!-- <div class="search">
-      <div>
-        <i class="fas fa-search"></i>
-        <input
-          type="text"
-          placeholder="Search for a country..."
-          v-model="search"
-        />
-      </div>
-    </div> -->
+
     <div v-if="loading">
       <Loading />
     </div>
@@ -20,15 +11,17 @@
         v-for="country in filteredCountries"
         :key="country.name"
       >
-        <img :src="country.flag" :alt="[country.name]" />
-        <div class="card__content">
-          <h4>{{ country.name }}</h4>
-          <div class="card__info">
-            <p><span>Population:&nbsp;</span>{{ country.population }}</p>
-            <p><span>Region:&nbsp; </span>{{ country.region }}</p>
-            <p><span>Capital:&nbsp; </span>{{ country.capital }}</p>
+        <router-link :to="'/countrydetail/' + country.name">
+          <img :src="country.flag" :alt="[country.name]" />
+          <div class="card__content">
+            <h4>{{ country.name }}</h4>
+            <div class="card__info">
+              <p><span>Population:&nbsp;</span>{{ country.population }}</p>
+              <p><span>Region:&nbsp; </span>{{ country.region }}</p>
+              <p><span>Capital:&nbsp; </span>{{ country.capital }}</p>
+            </div>
           </div>
-        </div>
+        </router-link>
       </div>
     </div>
   </div>
@@ -49,8 +42,8 @@ export default {
     return {
       loading: false,
       countries: [],
-      search: "",
-      name: "",
+      search: '',
+      name: '',
       uri: 'https://restcountries.eu/rest/v2/all',
     };
   },
@@ -60,7 +53,7 @@ export default {
       .get(this.uri)
       .then((response) => {
         this.countries = response.data;
-        console.log(response.data);
+        // console.log(response.data);
         this.loading = false;
       })
 
@@ -77,7 +70,9 @@ export default {
   computed: {
     filteredCountries() {
       return this.countries.filter((country) => {
-        return country.name.toLowerCase().includes(this.search.toString().toLowerCase());
+        return country.name
+          .toLowerCase()
+          .includes(this.search.toString().toLowerCase());
       });
     },
   },
@@ -85,30 +80,6 @@ export default {
 </script>
 
 <style>
-/* .search {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 30%;
-  height: 40px;
-  background-color: hsl(207, 26%, 17%);
-  margin: 1rem;
-  border-radius: 5px;
-  box-shadow: inset 0 0 5px 5px hsl(207, 26%, 17%);
-}
-
-.search i {
-  padding: 1rem;
-  font-weight: 600;
-}
-input {
-  outline: none;
-  border: none;
-  background: none;
-  font-size: 12px;
-  color: #fff !important;
-  font-weight: 600;
-} */
 .gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
