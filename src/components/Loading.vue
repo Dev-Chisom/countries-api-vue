@@ -1,221 +1,112 @@
 <template>
-  <div class="placeholder-container">
-    <div class="placeholder shimmer">
-      <div class="faux-image-wrapper">
-        <div class="faux-image" />
-      </div>
-      <div class="text-container">
-        <div class="faux-text heading" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
-      </div>
-    </div>
-    <div class="placeholder shimmer">
-      <div class="faux-image-wrapper">
-        <div class="faux-image" />
-      </div>
-      <div class="text-container">
-        <div class="faux-text heading" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
+  <fragment>
+    <div class="loading">
+      <div class="lds-spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     </div>
-    <div class="placeholder shimmer">
-      <div class="faux-image-wrapper">
-        <div class="faux-image" />
-      </div>
-      <div class="text-container">
-        <div class="faux-text heading" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
-      </div>
-    </div>
-    <div class="placeholder shimmer">
-      <div class="faux-image-wrapper">
-        <div class="faux-image" />
-      </div>
-      <div class="text-container">
-        <div class="faux-text heading" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
-      </div>
-    </div>
-    <div class="placeholder shimmer">
-      <div class="faux-image-wrapper">
-        <div class="faux-image" />
-      </div>
-      <div class="text-container">
-        <div class="faux-text heading" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
-      </div>
-    </div>
-    <div class="placeholder shimmer">
-      <div class="faux-image-wrapper">
-        <div class="faux-image" />
-      </div>
-      <div class="text-container">
-        <div class="faux-text heading" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
-      </div>
-    </div>
-    <div class="placeholder shimmer">
-      <div class="faux-image-wrapper">
-        <div class="faux-image" />
-      </div>
-      <div class="text-container">
-        <div class="faux-text heading" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
-      </div>
-    </div>
-    <div class="placeholder shimmer">
-      <div class="faux-image-wrapper">
-        <div class="faux-image" />
-      </div>
-      <div class="text-container">
-        <div class="faux-text heading" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
-      </div>
-    </div>
-    <div class="placeholder shimmer">
-      <div class="faux-image-wrapper">
-        <div class="faux-image" />
-      </div>
-      <div class="text-container">
-        <div class="faux-text heading" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
-      </div>
-    </div>
-    <div class="placeholder shimmer">
-      <div class="faux-image-wrapper">
-        <div class="faux-image" />
-      </div>
-      <div class="text-container">
-        <div class="faux-text heading" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
-      </div>
-    </div>
-    <div class="placeholder shimmer">
-      <div class="faux-image-wrapper">
-        <div class="faux-image" />
-      </div>
-      <div class="text-container">
-        <div class="faux-text heading" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
-      </div>
-    </div>
-    <div class="placeholder shimmer">
-      <div class="faux-image-wrapper">
-        <div class="faux-image" />
-      </div>
-      <div class="text-container">
-        <div class="faux-text heading" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
-      </div>
-    </div>
-    <div class="placeholder shimmer">
-      <div class="faux-image-wrapper">
-        <div class="faux-image" />
-      </div>
-      <div class="text-container">
-        <div class="faux-text heading" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
-        <div class="faux-text short" />
-      </div>
-    </div>
-  </div>
+  </fragment>
 </template>
 
 <script>
 export default {
-  name: 'Main',
+  name: 'Loader',
 };
 </script>
 
 <style>
-.placeholder-container {
+.loading {
+  height: 65vh;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto;
+  place-content: center;
 }
-.placeholder {
-  max-width: 250px;
-  margin: 1rem;
-  background-color: hsl(207, 26%, 17%);
-  border-radius: 5px;
-}
-.faux-image-wrapper {
-  margin-bottom: 10px;
+.lds-spinner {
+  color: official;
+  display: inline-block;
   position: relative;
-  /* padding-bottom: 100%;*/
-  height: 200px;
+  width: 80px;
+  height: 80px;
 }
-.faux-image {
-  background: silver;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-  height: 150px;
+.lds-spinner div {
+  transform-origin: 40px 40px;
+  animation: lds-spinner 1.2s linear infinite;
+}
+.lds-spinner div:after {
+  content: ' ';
+  display: block;
   position: absolute;
-  width: 100%;
+  top: 3px;
+  left: 37px;
+  width: 6px;
+  height: 18px;
+  border-radius: 20%;
+  background: #cef;
 }
-.faux-text {
-  background: silver;
-  border-radius: 2px;
-  height: 25px;
-  width: 75%;
-  margin-bottom: 5px;
+.lds-spinner div:nth-child(1) {
+  transform: rotate(0deg);
+  animation-delay: -1.1s;
 }
-
-.faux-text.short {
-  width: 50%;
+.lds-spinner div:nth-child(2) {
+  transform: rotate(30deg);
+  animation-delay: -1s;
 }
-.text-container {
-  padding: 10px 10px 10px 0;
+.lds-spinner div:nth-child(3) {
+  transform: rotate(60deg);
+  animation-delay: -0.9s;
 }
-.shimmer {
-  overflow: hidden;
-  position: relative;
+.lds-spinner div:nth-child(4) {
+  transform: rotate(90deg);
+  animation-delay: -0.8s;
 }
-.shimmer::before {
-  content: '';
-  position: absolute;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.4) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  height: 100%;
-  width: 100%;
-  z-index: 1;
-  animation: shimmer 1s infinite;
+.lds-spinner div:nth-child(5) {
+  transform: rotate(120deg);
+  animation-delay: -0.7s;
 }
-@keyframes shimmer {
+.lds-spinner div:nth-child(6) {
+  transform: rotate(150deg);
+  animation-delay: -0.6s;
+}
+.lds-spinner div:nth-child(7) {
+  transform: rotate(180deg);
+  animation-delay: -0.5s;
+}
+.lds-spinner div:nth-child(8) {
+  transform: rotate(210deg);
+  animation-delay: -0.4s;
+}
+.lds-spinner div:nth-child(9) {
+  transform: rotate(240deg);
+  animation-delay: -0.3s;
+}
+.lds-spinner div:nth-child(10) {
+  transform: rotate(270deg);
+  animation-delay: -0.2s;
+}
+.lds-spinner div:nth-child(11) {
+  transform: rotate(300deg);
+  animation-delay: -0.1s;
+}
+.lds-spinner div:nth-child(12) {
+  transform: rotate(330deg);
+  animation-delay: 0s;
+}
+@keyframes lds-spinner {
   0% {
-    transform: translateX(-100%);
+    opacity: 1;
   }
   100% {
-    transform: translateX(100%);
+    opacity: 0;
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div class="app" :class="[mode ? 'dark' : 'light']">
     <Header :mode="mode" @toggle="toggle" />
 
     <router-view :key="$route.fullPath"></router-view>
@@ -23,9 +23,9 @@ export default {
   },
   toggle() {
     if (this.mode === 'dark') {
-      this.mode = 'light';
-    } else {
       this.mode = 'dark';
+    } else {
+      this.mode = 'light';
     }
   },
 };
@@ -47,11 +47,20 @@ export default {
   font-family: 'Nunito', sans-serif;
 }
 
-.app {
+body .light {
+  background-color: var(--White);
+  color: var(--Very-Dark-Blue-Text);
+}
+.dark {
+  background-color: var(--Dark-Blue-Elements);
+  color: var(--White);
+}
+
+body {
   width: 100vw;
   min-height: 100vh;
-  background-color: var(--Dark-Blue-Elements);
-  color: var(--Very-Dark-Blue-Text);
+  /* background-color: var(--Dark-Blue-Elements);
+  color: hsl(0, 0%, 100%); */
   transition: background 0.3s ease-in-out;
   /* overflow: hidden; */
 }
@@ -61,8 +70,8 @@ export default {
   overflow: hidden;
   padding: 0 40px;
 }
-.dark {
+/* .dark {
   background: #192724;
   color: #f3f3f3;
-}
+} */
 </style>

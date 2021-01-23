@@ -11,17 +11,17 @@
         v-for="country in filteredCountries"
         :key="country.name"
       >
-        <router-link :to="'/countrydetail/' + country.name">
-          <img :src="country.flag" :alt="[country.name]" />
-          <div class="card__content">
-            <h4>{{ country.name }}</h4>
-            <div class="card__info">
-              <p><span>Population:&nbsp;</span>{{ country.population }}</p>
-              <p><span>Region:&nbsp; </span>{{ country.region }}</p>
-              <p><span>Capital:&nbsp; </span>{{ country.capital }}</p>
-            </div>
+        <!-- <router-link :to="'/countrydetail/' + country.name"> -->
+        <img :src="country.flag" :alt="[country.name]" />
+        <div class="card__content" @click.prevent="getCountry(country.name)">
+          <h4>{{ country.name }}</h4>
+          <div class="card__info">
+            <p><span>Population:&nbsp;</span>{{ country.population }}</p>
+            <p><span>Region:&nbsp; </span>{{ country.region }}</p>
+            <p><span>Capital:&nbsp; </span>{{ country.capital }}</p>
           </div>
-        </router-link>
+        </div>
+        <!-- </router-link> -->
       </div>
     </div>
   </div>
@@ -66,6 +66,11 @@ export default {
       this.search = value;
       // console.log(value);
     },
+    getCountry(country) {
+      console.log(country);
+      localStorage.setItem('countryName', country);
+      this.$router.push('/countrydetail/' + country);
+    },
   },
   computed: {
     filteredCountries() {
@@ -80,17 +85,25 @@ export default {
 </script>
 
 <style>
+a {
+  text-decoration: none;
+}
+body .light .card {
+  background-color: var(--White);
+  color: var(--Very-Dark-Blue-Text);
+}
+.dark {
+  background-color: var(--Dark-Blue-Elements);
+  color: var(--White);
+}
 .gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto;
-  /* overflow: hidden; */
-  /* gap: 10px; */
 }
 .card {
   width: 270px;
   border-radius: 5px;
-  /* height: 300px; */
+
   object-fit: contain;
   background-color: hsl(207, 26%, 17%);
   text-align: justify;
@@ -123,31 +136,20 @@ img {
   color: #fff;
   font-weight: 300;
 }
-/* @media screen and (max-width: 768px) {
+
+@media screen and (max-width: 990px) {
   .gallery {
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-    overflow: hidden;
-    gap: 10px;
   }
 }
-@media screen and (max-width: 4klw40px) {
+@media screen and (max-width: 768px) {
   .gallery {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
-    overflow: hidden;
-    gap: 10px;
+    grid-template-columns: repeat(1, 1fr);
   }
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
   .gallery {
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
-    overflow: hidden;
-    gap: 10px;
   }
-} */
+}
 </style>

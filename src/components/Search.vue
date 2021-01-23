@@ -21,6 +21,7 @@ export default {
   name: 'Search',
   data() {
     return {
+      mode: true,
       countries: [],
       search: '',
       name: '',
@@ -57,6 +58,14 @@ export default {
 .container {
   overflow: hidden;
 }
+.light {
+  background-color: var(--Very-Light-Gray-Background);
+  color: var(--Very-Dark-Blue-Text);
+}
+.dark {
+  background-color: var(--Dark-Blue-Elements);
+  color: var(--White);
+}
 .search {
   position: relative;
   display: flex;
@@ -66,7 +75,7 @@ export default {
   background-color: hsl(207, 26%, 17%);
   margin: 1rem;
   border-radius: 5px;
-  box-shadow: inset 0 0 5px 5px hsl(207, 26%, 17%);
+  /* box-shadow: inset 0 0 5px 5px hsl(207, 26%, 17%); */
 }
 
 .search i {

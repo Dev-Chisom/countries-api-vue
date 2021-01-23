@@ -1,6 +1,10 @@
 <template>
-  <div>
-    <div>
+  <div class="wrapper">
+    <button class="wrapper__back" @click="$router.go(-1)">
+      <i class="fas fa-arrow-left"></i>
+      Back
+    </button>
+    <div class="country">
       <div>
         <img :src="countryDetails.flag" :alt="[countryDetails.name]" />
       </div>
@@ -61,6 +65,7 @@
               <button
                 v-for="(borders, index) in countryDetails.borders"
                 :key="index"
+                :class="[mode ? 'bg-veryLightGrayColor' : 'bg-darkBlueColor']"
               >
                 {{ borders }}
               </button>
@@ -78,17 +83,21 @@ export default {
   name: 'CountryDetail',
   data() {
     return {
-      countryDetails: [],
+      mode: true,
+      country: '',
+      countryDetails: {},
     };
   },
   props: {
     name: String,
   },
   mounted() {
+    this.country = localStorage.getItem('countryName');
+    console.log(this.country);
     return axios
-      .get('https://restcountries.eu/rest/v2/all')
+      .get('https://restcountries.eu/rest/v2/name/' + this.country)
       .then((response) => {
-        this.countryDetails = response.data;
+        this.countryDetails = response.data[0];
         console.log(response);
       })
       .catch((err) => {
@@ -98,4 +107,25 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.light {
+  background-color: var(--Very-Light-Gray-Background);
+  color: var(--Very-Dark-Blue-Text);
+}
+.dark {
+  background-color: var(--Dark-Blue-Elements);
+  color: var(--White);
+}
+.wrapper {
+  max-width: 1440px;
+  margin-top: 3rem;
+}
+.wrapper__back {
+  margin: 2rem;
+}
+.country {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+</style>
