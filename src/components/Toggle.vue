@@ -1,8 +1,8 @@
 <template>
   <div class="toggle">
     <p class="" @click="toggle">
-      <span v-if="!isLight"><i class="fas fa-moon"></i>Dark Mode</span>
-      <span v-else><i class="fas fa-sun"></i>Light Mode</span>
+      <span v-if="!isLight"><i class="fas fa-moon"></i> Dark Mode</span>
+      <span v-else><i class="fas fa-sun"></i> Light Mode</span>
     </p>
   </div>
 </template>
