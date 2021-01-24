@@ -58,14 +58,15 @@ export default {
 .container {
   overflow: hidden;
 }
-.light {
+.light .search {
   background-color: var(--Very-Light-Gray-Background);
   color: var(--Very-Dark-Blue-Text);
+  border: 2px solid #ccc;
 }
-.dark {
+/* .dark {
   background-color: var(--Dark-Blue-Elements);
   color: var(--White);
-}
+} */
 .search {
   position: relative;
   display: flex;
@@ -89,5 +90,11 @@ input {
   font-size: 12px;
   color: #fff !important;
   font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .search {
+    width: 90%;
+  }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <div class="app" :class="[mode ? 'dark' : 'light']">
-    <Header :mode="mode" @toggle="toggle" />
+  <div class="app">
+    <Header/>
 
     <router-view :key="$route.fullPath"></router-view>
   </div>
@@ -14,20 +14,20 @@ export default {
   name: 'App',
   data() {
     return {
-      mode: 'light',
+      // mode: 'light',
     };
   },
   components: {
     Header,
     // Main,
   },
-  toggle() {
-    if (this.mode === 'dark') {
-      this.mode = 'dark';
-    } else {
-      this.mode = 'light';
-    }
-  },
+  // toggle() {
+  //   if (this.mode === 'dark') {
+  //     this.mode = 'dark';
+  //   } else {
+  //     this.mode = 'light';
+  //   }
+  // },
 };
 </script>
 
@@ -51,16 +51,16 @@ body .light {
   background-color: var(--White);
   color: var(--Very-Dark-Blue-Text);
 }
-.dark {
+/* .dark {
   background-color: var(--Dark-Blue-Elements);
   color: var(--White);
-}
+} */
 
 body {
-  width: 100vw;
+  /* width: 100vw; */
   min-height: 100vh;
-  /* background-color: var(--Dark-Blue-Elements);
-  color: hsl(0, 0%, 100%); */
+  background-color: var(--Dark-Blue-Elements);
+  color: hsl(0, 0%, 100%);
   transition: background 0.3s ease-in-out;
   /* overflow: hidden; */
 }

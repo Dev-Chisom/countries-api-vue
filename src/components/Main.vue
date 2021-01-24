@@ -88,22 +88,24 @@ export default {
 a {
   text-decoration: none;
 }
-body .light .card {
+body.light .card {
   background-color: var(--White);
   color: var(--Very-Dark-Blue-Text);
 }
-.dark {
+/* .dark {
   background-color: var(--Dark-Blue-Elements);
   color: var(--White);
-}
+} */
 .gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  place-items: center;
+  /* grid-column-gap: 20px; */
 }
 .card {
   width: 270px;
   border-radius: 5px;
-
+  color: var(--White);
   object-fit: contain;
   background-color: hsl(207, 26%, 17%);
   text-align: justify;
@@ -121,35 +123,32 @@ img {
   margin: 1rem;
 }
 .card h4 {
-  color: #fff;
   padding: 10px 10px 10px 0;
 }
 .card span {
   display: inline-block;
-  color: #fff;
   font-weight: 400;
 }
 .card__info {
   padding: 5px 5px 20px 0;
 }
 .card__info p {
-  color: #fff;
   font-weight: 300;
 }
 
-@media screen and (max-width: 990px) {
+@media (max-width: 990px) {
   .gallery {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .gallery {
     grid-template-columns: repeat(1, 1fr);
   }
 }
-@media screen and (max-width: 1200px) {
+/* @media(max-width: 1200px) {
   .gallery {
     grid-template-columns: repeat(3, 1fr);
   }
-}
+} */
 </style>

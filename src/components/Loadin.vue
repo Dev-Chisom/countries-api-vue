@@ -157,10 +157,10 @@ export default {
   background-color: var(--Very-Light-Gray-Background);
   color: var(--Very-Dark-Blue-Text);
 }
-.dark {
+/* .dark {
   background-color: var(--Dark-Blue-Elements);
   color: var(--White);
-}
+} */
 .placeholder-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
