@@ -9,7 +9,6 @@
 
 <script>
 export default {
-  // props: ['mode'],
   data() {
     return {
       isLight: false,
@@ -19,22 +18,16 @@ export default {
     toggle() {
       this.isLight = !this.isLight;
       document.body.classList.toggle('light');
-      // if (this.isLight === true) {
-      //   document.body.classList.toggle('light');
-      // } else {
-      //   document.body.classList.toggle('dark');
-      // }
     },
   },
 };
 </script>
 
-<style>
-/* i {
-  color: hsl(0, 0%, 100%);
-  padding: 7px;
-}*/
+<style scoped>
 .toggle {
   cursor: pointer;
+}
+p {
+  margin-top: 1rem;
 }
 </style>

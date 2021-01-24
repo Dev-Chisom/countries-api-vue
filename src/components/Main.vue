@@ -5,23 +5,25 @@
     <div v-if="loading">
       <Loading />
     </div>
-    <div class="gallery">
-      <div
-        class="card"
-        v-for="country in filteredCountries"
-        :key="country.name"
-      >
-        <!-- <router-link :to="'/countrydetail/' + country.name"> -->
-        <img :src="country.flag" :alt="[country.name]" />
-        <div class="card__content" @click.prevent="getCountry(country.name)">
-          <h4>{{ country.name }}</h4>
-          <div class="card__info">
-            <p><span>Population:&nbsp;</span>{{ country.population }}</p>
-            <p><span>Region:&nbsp; </span>{{ country.region }}</p>
-            <p><span>Capital:&nbsp; </span>{{ country.capital }}</p>
+    <div class="wrapper">
+      <div class="gallery">
+        <div
+          class="card"
+          v-for="country in filteredCountries"
+          :key="country.name"
+        >
+          <!-- <router-link :to="'/countrydetail/' + country.name"> -->
+          <img :src="country.flag" :alt="[country.name]" />
+          <div class="card__content" @click.prevent="getCountry(country.name)">
+            <h4>{{ country.name }}</h4>
+            <div class="card__info">
+              <p><span>Population:&nbsp;</span>{{ country.population }}</p>
+              <p><span>Region:&nbsp; </span>{{ country.region }}</p>
+              <p><span>Capital:&nbsp; </span>{{ country.capital }}</p>
+            </div>
           </div>
+          <!-- </router-link> -->
         </div>
-        <!-- </router-link> -->
       </div>
     </div>
   </div>
@@ -92,10 +94,10 @@ body.light .card {
   background-color: var(--White);
   color: var(--Very-Dark-Blue-Text);
 }
-/* .dark {
-  background-color: var(--Dark-Blue-Elements);
-  color: var(--White);
-} */
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
 .gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -121,6 +123,7 @@ img {
 }
 .card__content {
   margin: 1rem;
+  cursor: pointer;
 }
 .card h4 {
   padding: 10px 10px 10px 0;
@@ -136,7 +139,7 @@ img {
   font-weight: 300;
 }
 
-@media (max-width: 990px) {
+@media (max-width: 1024px) {
   .gallery {
     grid-template-columns: repeat(2, 1fr);
   }

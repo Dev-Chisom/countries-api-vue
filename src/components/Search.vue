@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <div class="search">
       <div>
         <i class="fas fa-search"></i>
@@ -55,18 +55,16 @@ export default {
 </script>
 
 <style>
-.container {
-  overflow: hidden;
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
 }
 .light .search {
   background-color: var(--Very-Light-Gray-Background);
   color: var(--Very-Dark-Blue-Text);
   border: 2px solid #ccc;
 }
-/* .dark {
-  background-color: var(--Dark-Blue-Elements);
-  color: var(--White);
-} */
+
 .search {
   position: relative;
   display: flex;
@@ -76,7 +74,6 @@ export default {
   background-color: hsl(207, 26%, 17%);
   margin: 1rem;
   border-radius: 5px;
-  /* box-shadow: inset 0 0 5px 5px hsl(207, 26%, 17%); */
 }
 
 .search i {
